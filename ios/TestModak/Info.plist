@@ -27,7 +27,7 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>myapp</string>
+          <string>testmodakapp</string>
           <string>com.anonymous.TestModak</string>
         </array>
       </dict>

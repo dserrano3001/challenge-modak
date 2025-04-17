@@ -1,5 +1,5 @@
 const linking = {
-  prefixes: ["myapp://"],
+  prefixes: ["testmodakapp://"],
   config: {
     screens: {
       HomeScreen: "home",

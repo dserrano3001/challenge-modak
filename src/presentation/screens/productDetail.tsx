@@ -1,3 +1,4 @@
+import React from "react";
 import { useRoute } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import {
@@ -8,11 +9,13 @@ import {
   StyleSheet,
   ScrollView,
   ActivityIndicator,
+  Button,
 } from "react-native";
 import { getProductDetailsUseCase } from "../../core/usecases/getProductDetails";
 import { Product } from "../../core/entities/product";
 import { FontAwesome } from "@expo/vector-icons";
 import ProductDetails from "../components/productDetailsCmp";
+import { NativeModules } from "react-native";
 
 interface RouteParam {
   productId: number;
@@ -39,6 +42,21 @@ const ProductDetailScreen = () => {
 
     fetchData();
   }, []);
+
+  const handleShare = () => {
+    if (productDetail) {
+      setTimeout(() => {
+        if (NativeModules.SharedProduct) {
+          NativeModules.SharedProduct.shareText(
+            `Check out this product: <span class="math-inline">\{productDetail\.title\}\\n\\n</span>{productDetail.description}\nPrice: $${productDetail.price}`,
+            `Share ${productDetail.title}`
+          );
+        } else {
+          console.error("SharedProduct is still null after delay.");
+        }
+      }, 2000);
+    }
+  };
 
   if (loading) {
     return (
@@ -77,6 +95,7 @@ const ProductDetailScreen = () => {
             </View>
           )}
           <ProductDetails product={productDetail} />
+          <Button title="Share Product" onPress={handleShare} />
         </ScrollView>
       ) : (
         <View style={styles.emptyContainer}>
