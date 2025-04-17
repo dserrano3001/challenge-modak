@@ -1,4 +1,4 @@
-# Project: [Challenge Modak]
+# Project: Challenge Modak
 
 ## Description
 
