@@ -6,7 +6,11 @@ node_modules/
 # Expo
 .expo/
 dist/
+.eas-build/
 web-build/
+ios/build/
+android/build/
+android/app/build/
 expo-env.d.ts
 
 # Native
@@ -19,6 +23,8 @@ expo-env.d.ts
 
 # Metro
 .metro-health-check*
+.metro/
+metro-cache/
 
 # debug
 npm-debug.*
@@ -28,9 +34,25 @@ yarn-error.*
 # macOS
 .DS_Store
 *.pem
+Thumbs.db
 
 # local env files
 .env*.local
 
 # typescript
 *.tsbuildinfo
+
+# Logs
+*.log
+*.txt
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
