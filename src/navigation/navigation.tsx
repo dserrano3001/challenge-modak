@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../presentation/screens/home";
 import ProductDetailScreen from "../presentation/screens/productDetail";
 import { Text } from "react-native";
+import linking from "./deepLink";
 
 export type RootStackParamList = {
   HomeScreen: undefined;
@@ -11,16 +12,6 @@ export type RootStackParamList = {
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-const linking = {
-  prefixes: ["myapp://"],
-  config: {
-    screens: {
-      HomeScreen: "home",
-      ProductDetail: "product/:productId",
-    },
-  },
-};
 
 const AppNavigator = () => {
   return (
